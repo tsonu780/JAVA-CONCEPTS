@@ -1,0 +1,33 @@
+Anonymous class
+
+An anonymous class is an inner class without a name, which means that we can declare and instantiate a class at the same time. An anonymous class is used primarily when we want to use the class declaration once. Anonymous classes usually extend a subclass or implement an interface.In Java, an anonymous class is a class without a name that's defined on the fly, typically for overriding methods or implementing interfaces in a concise manner. Here's an example to illustrate how anonymous classes are used:
+
+
+// Example interface
+interface Greeting {
+    void greet();
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of the Greeting interface using anonymous class
+        Greeting englishGreeting = new Greeting() {
+            @Override
+            public void greet() {
+                System.out.println("Hello, world!");
+            }
+        };
+
+        // Calling the greet method of the anonymous class instance
+        englishGreeting.greet();
+    }
+}
+
+In this example:
+
+Greeting is a functional interface with a single abstract method greet().
+An anonymous class is created and instantiated using new Greeting() { ... }, which implements the Greeting interface inline.
+Inside the anonymous class definition, the greet() method is overridden to specify what happens when greet() is called.
+Finally, englishGreeting.greet() invokes the overridden greet() method of the anonymous class instance.
+
+Anonymous classes are particularly useful when you need to implement an interface with a small amount of code and you don't need to reuse the class elsewhere in your codebase. They provide a way to define and instantiate a class in a single concise expression.
