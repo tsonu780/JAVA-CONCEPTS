@@ -1,0 +1,12 @@
+package com.practice.loanApp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Autowired
+private CustomerRepo customerRepo;
+
+@Service
+public class CustomerService {
+	
+}

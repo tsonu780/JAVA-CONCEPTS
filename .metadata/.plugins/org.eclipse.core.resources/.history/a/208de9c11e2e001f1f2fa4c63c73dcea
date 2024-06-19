@@ -1,0 +1,5 @@
+package com.practice.loanApp.entity;
+
+public class Customer {
+
+}
