@@ -31,3 +31,36 @@ Inside the anonymous class definition, the greet() method is overridden to speci
 Finally, englishGreeting.greet() invokes the overridden greet() method of the anonymous class instance.
 
 Anonymous classes are particularly useful when you need to implement an interface with a small amount of code and you don't need to reuse the class elsewhere in your codebase. They provide a way to define and instantiate a class in a single concise expression.
+
+In Java, anonymous classes are typically used in conjunction with interfaces or classes they extend. This means that while you can instantiate an anonymous class without assigning it to a variable (making it technically "standalone"), the anonymous class itself still needs to extend a class or implement an interface.
+
+
+public class Main {
+    public static void main(String[] args) {
+        // Standalone anonymous class implementing Runnable interface
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Inside anonymous class thread");
+            }
+        }).start();
+    }
+}
+
+In this example:
+
+We create a new Thread object and pass an anonymous class implementing the Runnable interface directly to its constructor.
+Inside the anonymous class, we override the run() method to specify the thread's behavior.
+The start() method is then called on the thread object, which starts the execution of the thread, causing "Inside anonymous class thread" to be printed to the console.
+
+This anonymous class is "standalone" in the sense that it's defined and instantiated inline without assigning it to a named variable. However, it still implements the Runnable interface, demonstrating that even standalone anonymous classes need to extend a class or implement an interface.
+
+It's important to note that starting from Java 8, with the introduction of lambda expressions, anonymous classes are less commonly used for implementing single-method interfaces like Runnable, as lambda expressions provide a more concise syntax. However, anonymous classes are still useful for more complex scenarios or when you need to create instances of classes without explicitly defining a named class.
+
+
+customer - id , name, mobile number,age
+employee - id, name, mobile number 
+vendors - id, name, eligibility(max amount, min amount, max tenure, min tenure,age, cibil), loanTypes
+loanTypes - id , type
+loanApplication - id,customer,employee,loanType,vendor,cibil,amount,tenure,start date,end date,emi,installments,installmentDetails,loanstatus
+paymentDetails - id, amount,date,status,customer
