@@ -64,3 +64,18 @@ vendors - id, name, eligibility(max amount, min amount, max tenure, min tenure,a
 loanTypes - id , type
 loanApplication - id,customer,employee,loanType,vendor,cibil,amount,tenure,start date,end date,emi,installments,installmentDetails,loanstatus
 paymentDetails - id, amount,date,status,customer
+
+
+Make sure that your entity class has public getter methods for all the fields that you want to be included in the JSON response. Spring uses these getter methods to serialize objects into JSON.
+The @RestController annotation indicates that the class is a controller where every method returns a domain object instead of a view.
+The @RequestMapping("/api/users") annotation maps HTTP requests to handler methods of MVC and REST controllers.
+The @GetMapping("/example") annotation is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
+To get a response in JSON directly in a Spring Boot application, you typically use the @RestController annotation in combination with the @RequestMapping (or other mapping annotations like @GetMapping, @PostMapping, etc.) on your controller methods. The @RestController annotation itself is a convenience annotation that combines @Controller and @ResponseBody, which means it tells Spring to convert the return value of the methods into JSON (or XML or other formats based on the content negotiation).
+
+When working with Spring Data JPA and using Postman to send requests, you should use the member (field) names of the entity class, not the column names specified in the @Column annotation.
+
+Here’s a brief explanation:
+
+Entity Class Field Names: These are the names of the variables in your entity class. These names are used when you serialize/deserialize JSON objects in your REST API.
+
+Column Names: These are the names used in the database. They are defined by the @Column annotation in your entity class and are used to map the fields of your entity to the columns in your database table.
