@@ -8,10 +8,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "Customer")
 @Data
+@ToString
 @NoArgsConstructor
 public class Customer {
 	
@@ -24,14 +26,43 @@ public class Customer {
 	private String name;
 	
 	@Column(name = "Mobile_Number", unique = true, nullable = false)
-	private int mobileNumber;
+	private String mobileNumber;
 	
 	@Column(name="Age", nullable=false)
 	private int age;
 	
-	Customer(String name, int mobileNumber, int age){
+	public long getId() {
+		return this.id;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	public String getmobileNumber() {
+		return this.mobileNumber;
+	}
+	public int getAge() {
+		return this.age;
+	}
+	
+	Customer(){
+		
+	}
+	
+	Customer(String name, String mobileNumber, int age){
 		this.name = name;
 		this.mobileNumber = mobileNumber;
 		this.age = age;
 	}
+	
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", age='" + age + '\'' +
+                '}';
+    }
+	
 }
