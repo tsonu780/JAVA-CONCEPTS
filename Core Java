@@ -79,3 +79,47 @@ Here’s a brief explanation:
 Entity Class Field Names: These are the names of the variables in your entity class. These names are used when you serialize/deserialize JSON objects in your REST API.
 
 Column Names: These are the names used in the database. They are defined by the @Column annotation in your entity class and are used to map the fields of your entity to the columns in your database table.
+
+
+
+
+To run a Spring Boot application using the java -jar command, you first need to package your application into an executable JAR file. This is typically done using a build tool like Maven or Gradle. Here are the steps to achieve this:
+Using Maven
+Add the Spring Boot Maven Plugin:
+
+Ensure your pom.xml includes the Spring Boot Maven plugin:
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+
+
+Package the Application:
+
+Run the following command in the root directory of your project to build the JAR file:
+
+mvn clean package
+
+This will create a JAR file in the target directory (e.g., target/my-springboot-app-0.0.1-SNAPSHOT.jar).
+
+Running the JAR File
+Once you have the JAR file, you can run your Spring Boot application using the java -jar command:
+java -jar target/my-springboot-app-0.0.1-SNAPSHOT.jar
+(EX -   java -jar target/loanApp-0.0.1-SNAPSHOT.jar)
+
+
+Contents of the JAR File
+A Spring Boot executable JAR file contains:
+
+Your Compiled Application Code: All the compiled .class files of your application.
+Dependencies: All the JAR files required by your application, including Spring Boot and any other libraries your application depends on.
+Resources: Any static resources (like properties files, static web assets, etc.) from the src/main/resources directory.
+META-INF/MANIFEST.MF: The manifest file, which includes metadata about the JAR, such as the main class to be executed.
+Spring Boot Loader: Classes provided by Spring Boot to launch the application from the JAR.
+
+After making changes to your code, you need to recompile and rebuild your JAR file using the same above commands.
