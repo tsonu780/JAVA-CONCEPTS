@@ -123,3 +123,12 @@ META-INF/MANIFEST.MF: The manifest file, which includes metadata about the JAR, 
 Spring Boot Loader: Classes provided by Spring Boot to launch the application from the JAR.
 
 After making changes to your code, you need to recompile and rebuild your JAR file using the same above commands.
+
+@Column(columnDefinition = "TEXT")
+What columnDefinition = "TEXT" Means
+Purpose: Specifies the SQL data type of the column.
+Usage: Used to store large text data.
+Effect: Overrides the default column type that JPA would generate based on the Java type.
+Why Use TEXT?
+Large Text Storage: The TEXT data type is suitable for storing large text strings that exceed the typical length limits of the VARCHAR type.
+Compatibility: Ensures compatibility with database-specific text handling, especially for databases that differentiate between VARCHAR and TEXT.
